@@ -30,21 +30,6 @@ const RegisterUser = async (req, res) => {
   }
 };
 
-//user login
-const LoginUser = async (req,res) => {
-  try {
-      const {username, password} = req.body
-      const user = await User.findByCredentials(username, password)
-      const token = await user.generateAuthToken()
-      res.status(200).send({success:true, token: token, user: user})
-  
-    } catch (error) {
-      res.status(500).send({ error: error.message });
-      console.log(error);
-    }
-  };
-
-
 module.exports = {
-  RegisterUser,LoginUser
+  RegisterUser
 };

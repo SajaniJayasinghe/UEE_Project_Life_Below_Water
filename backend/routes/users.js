@@ -6,11 +6,9 @@ const jwt = require("jsonwebtoken");
 
 const { 
     RegisterUser,
-    LoginUser,
  } = require("../controllers/user.controller");
 
 UserRouter.post("/registeruser", RegisterUser);
-UserRouter.post("/loginuser",LoginUser);
 
 
 module.exports = UserRouter;
