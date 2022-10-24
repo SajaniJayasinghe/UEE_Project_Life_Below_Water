@@ -6,15 +6,15 @@ const userauth = async (req,res,next)=>{
     try {
         const token = req.header("Authorization");
         const decode = jwt.verify(token, "jwtSecret");
-        const User_s = await user.findOne({
+        const User = await user.findOne({
             _id:decode._id,
             "tokens.token":token
         });
-        if(!User_s){
+        if(!User){
           throw new Error("Please Authenticated");
         }
         req.token = token;
-        req.User = User_s;
+        req.User = User;
         next();
     } catch (error) {
         res.status(401).send({ message: error.message });
