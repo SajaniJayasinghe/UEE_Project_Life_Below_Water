@@ -1,6 +1,6 @@
 // const Organization = require("../models/organizations.models");
 // const User = require("../models/users.models");
-// const userauth = require("../middlewear/userauth.middlewear");
+// const userauth = require("../middlewear/userauth");
 
 // const AddMember = async (req, res) => {
 //   const organizationID = req.params.id;

@@ -9,7 +9,7 @@ const {
   UpdateOrganization,
   DeleteOrganization,
 } = require("../controllers/organizations.controller");
-const userauth = require("../middlewear/userauth.middlewear");
+const userauth = require("../middlewear/userauth");
 
 OrganizationRouter.post("/addorganization", NewOrganization);
 OrganizationRouter.get("/getorganization", GetOrganization);
