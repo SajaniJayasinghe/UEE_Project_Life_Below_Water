@@ -1,17 +1,21 @@
 const express = require("express");
 const UserRouter = express.Router();
-const userauth = require("../middlewear/userauth.middlewear");
+const userauth = require("../middlewear/userauth");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-
-const { RegisterUser } = require("../controllers/user.controller");
-const { LoginUser } = require("../controllers/user.controller");
-
-
+const { 
+    RegisterUser, 
+    LoginUser, 
+    GetUserProfile,
+    UpdateProfile,
+    ProfileDelete
+} = require("../controllers/user.controller");
 
 UserRouter.post("/registeruser", RegisterUser);
-UserRouter.post("/login", LoginUser);
-
+UserRouter.post("/login",LoginUser);
+UserRouter.get("/userprofile/:id",userauth,GetUserProfile);
+UserRouter.put("/updateuser",userauth,UpdateProfile);
+UserRouter.delete("/deleteuser/:id",ProfileDelete);
 
 module.exports = UserRouter;
