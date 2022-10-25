@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const DonationsSchema = mongoose.Schema({
   amount: {
-    type: Number,
+    type: String,
     required: true,
   },
 
@@ -16,7 +16,7 @@ const DonationsSchema = mongoose.Schema({
   },
 
   depositeDate: {
-    type: Date,
+    type: String,
     required: true,
   },
 
