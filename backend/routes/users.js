@@ -8,6 +8,8 @@ const jwt = require("jsonwebtoken");
 const { RegisterUser } = require("../controllers/user.controller");
 const { LoginUser } = require("../controllers/user.controller");
 
+
+
 UserRouter.post("/registeruser", RegisterUser);
 UserRouter.post("/login", LoginUser);
 
