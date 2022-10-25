@@ -7,4 +7,13 @@
  users.
  
  * Publish and make awareness of the organizations where users can register
- to contribute in projects.
+ to contribute in projects. 
+ * Donate via the application to the events organized. 
+ * Manage events with the organizations.
+ * Maintaining blogs regarding life below water and with the event organized by the organizations.
+
+# Functions :
+   1) Organization
+   2) Events
+   3) Donations
+   4) Blogs
