@@ -48,7 +48,24 @@ const GetOneDonations = async (req,res)=>{
 }
 
 //update donations
-
+const UpdateDonation = (req, res) => {
+  Donations.findByIdAndUpdate(
+    req.params.donationID,
+    {
+      $set: req.body,
+    },
+    (err) => {
+      if (err) {
+        return res.status(400).json({
+          error: err,
+        });
+      }
+      return res.status(200).json({
+        success: "Donation Updated Successfully",
+      });
+    }
+  );
+};
 
 //delete donations
 const DeleteDonation = (req, res) => {
