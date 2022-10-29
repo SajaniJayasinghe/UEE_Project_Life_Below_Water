@@ -16,6 +16,7 @@ const NewBlog = async (req, res) => {
       });
   };
   
+  //get all blogs
   const GetBlog = async (req, res) => {
     Blogs.find().exec((err, blogs) => {
       if (err) {
