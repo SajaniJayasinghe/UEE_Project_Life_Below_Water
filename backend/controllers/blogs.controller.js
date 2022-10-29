@@ -67,7 +67,7 @@ const NewBlog = async (req, res) => {
     );
   };
 
-
+//delete blog 
   const DeleteBlog = (req, res) => {
     Blogs.findByIdAndRemove(req.params.blogID).exec(
       (err, deleteblogs) => {
