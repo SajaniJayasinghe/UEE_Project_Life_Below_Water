@@ -1,5 +1,6 @@
 const Blogs = require("../models/blogs.models");
 
+//add new blog
 const NewBlog = async (req, res) => {
     let newBlog = new Blogs(req.body);
     newBlog.save((err) => {
