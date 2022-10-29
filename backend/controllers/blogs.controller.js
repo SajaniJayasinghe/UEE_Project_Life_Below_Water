@@ -16,6 +16,7 @@ const NewBlog = async (req, res) => {
       });
   };
   
+  //get all blogs
   const GetBlog = async (req, res) => {
     Blogs.find().exec((err, blogs) => {
       if (err) {
@@ -30,6 +31,7 @@ const NewBlog = async (req, res) => {
     });
   };
 
+  //get one blogs 
   const GetOneBlog = async (req, res) => {
     let BlogID = req.params.blogID;
     Blogs.findById(BlogID, (err, blog) => {
@@ -44,7 +46,8 @@ const NewBlog = async (req, res) => {
       });
     });
   };
-    
+  
+  //update blog details  
   const UpdateBlog = (req, res) => {
     Blogs.findByIdAndUpdate(
       req.params.blogID,
@@ -64,7 +67,7 @@ const NewBlog = async (req, res) => {
     );
   };
 
-
+//delete blog 
   const DeleteBlog = (req, res) => {
     Blogs.findByIdAndRemove(req.params.blogID).exec(
       (err, deleteblogs) => {
