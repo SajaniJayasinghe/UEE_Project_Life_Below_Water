@@ -31,6 +31,7 @@ const NewBlog = async (req, res) => {
     });
   };
 
+  //get one blogs comment
   const GetOneBlog = async (req, res) => {
     let BlogID = req.params.blogID;
     Blogs.findById(BlogID, (err, blog) => {
