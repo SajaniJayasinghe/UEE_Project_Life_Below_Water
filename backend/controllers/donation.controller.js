@@ -1,20 +1,7 @@
 const Donations = require("../models/donations.models");
 
 //add new donations
-const NewDonation = async (req,res) =>{
-  let newDonation = new Donations(req.body);
-  newDonation.save((err)=>{
-    if(err){
-      return res.status(400).json({
-        error :err ,
-      });
-    }
-    return res.status(200).send({ 
-      success: "New Donation add Successfully !!",
-      donation: newDonation 
-    });
-  });
-};
+
 
 //get all donations
 const GetDonations = async (req,res)=>{
