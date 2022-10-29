@@ -68,22 +68,6 @@ const UpdateDonation = (req, res) => {
 };
 
 //delete donations
-const DeleteDonation = (req, res) => {
-  Donations.findByIdAndRemove(req.params.donationID).exec(
-    (err, deletedonations) => {
-      if (err)
-        return res.status(400).json({
-          message: "Deletion Unsuccessfull",
-          err,
-        });
-
-      return res.json({
-        message: "Deletion Successfull",
-        deletedonations,
-      });
-    }
-  );
-};
 
 
 module.exports = {
