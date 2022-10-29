@@ -32,6 +32,20 @@ const GetDonations = async (req,res)=>{
 }
 
 //get specific donations
+const GetOneDonations = async (req,res)=>{
+  let donationID = req.params.donationID;
+  Donations.findById(donationID,(err,donation)=>{
+    if (err) {
+      return res.status(400).json({
+        error: err,
+      });
+    }
+    return res.status(200).json({
+      success: true,
+      existingDonations : donation
+    });
+  });
+}
 
 //update donations
 const UpdateDonation = (req, res) => {
