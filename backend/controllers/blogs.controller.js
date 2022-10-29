@@ -8,10 +8,11 @@ const NewBlog = async (req, res) => {
           error: err,
         });
       }
-      return res.status(200).send({ blog: newBlog }).json({
-        success: "New Blog add successfully!!!",
+      return res.status(200).json({
+        success: "New Blog add Successfully !!",
+        blog :newBlog,
+       });
       });
-    });
   };
   
   const GetBlog = async (req, res) => {
@@ -29,7 +30,7 @@ const NewBlog = async (req, res) => {
   };
 
   const GetOneBlog = async (req, res) => {
-    let BlogID = req.params.BlogID;
+    let BlogID = req.params.blogID;
     Blogs.findById(BlogID, (err, blog) => {
       if (err) {
         return res.status(400).json({
@@ -61,6 +62,7 @@ const NewBlog = async (req, res) => {
       }
     );
   };
+
 
   const DeleteBlog = (req, res) => {
     Blogs.findByIdAndRemove(req.params.blogID).exec(

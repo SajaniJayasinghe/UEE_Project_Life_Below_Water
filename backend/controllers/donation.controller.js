@@ -9,10 +9,9 @@ const NewDonation = async (req,res) =>{
         error :err ,
       });
     }
-    return res.status(200).send({
-      donation : newDonation
-    }).json({
+    return res.status(200).send({ 
       success: "New Donation add Successfully !!",
+      donation: newDonation 
     });
   });
 };

@@ -8,6 +8,7 @@ const dotenv = require("dotenv");
 const DonationRouter = require("./routes/donations");
 const UserRouter = require("./routes/users");
 const OrganizationRouter = require("./routes/organizations");
+const BlogRouter = require("./routes/blogs");
 
 const app = express();
 
@@ -20,6 +21,7 @@ const PORT = process.env.PORT || 8080;
 app.use("/api/donation", DonationRouter);
 app.use("/api/user", UserRouter);
 app.use("/api/organization", OrganizationRouter);
+app.use("/api/blog",BlogRouter);
 
 app.listen(PORT, () => {
   console.log(`Server is up and running on port number: ${PORT}`);

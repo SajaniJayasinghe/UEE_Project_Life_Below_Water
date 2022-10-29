@@ -12,7 +12,7 @@ const {
   
 BlogRouter.post("/addblog", NewBlog);
 BlogRouter.get("/getblog", GetBlog);
-BlogRouter.get("/:blogID", GetOneBlog);
+BlogRouter.get("/getBlog/:blogID", GetOneBlog);
 BlogRouter.put("/update/:blogID", UpdateBlog);
 BlogRouter.delete("/delete/:blogID", DeleteBlog);
 
