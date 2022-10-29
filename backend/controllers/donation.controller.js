@@ -17,7 +17,19 @@ const NewDonation = async (req,res) =>{
 };
 
 //get all donations
-
+const GetDonations = async (req,res)=>{
+  Donations.find().exec((err , donations)=>{
+    if(err){
+      return res.status(400).json({
+        error:err,
+      });
+    }
+    return res.status(200).json({
+      success : true,
+      existingDonations : donations
+    });
+  });
+}
 
 //get specific donations
 const GetOneDonations = async (req,res)=>{
