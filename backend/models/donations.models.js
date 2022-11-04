@@ -1,5 +1,14 @@
 const mongoose = require("mongoose");
 const DonationsSchema = mongoose.Schema({
+  eventID: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: "events",
+  },
+  eventTitle: {
+    type: String,
+    required: true,
+  },
   amount: {
     type: String,
     required: true,
@@ -26,5 +35,5 @@ const DonationsSchema = mongoose.Schema({
   },
 });
 
-const Donations = mongoose.model('donations',DonationsSchema)
-module.exports = Donations
+const Donations = mongoose.model("donations", DonationsSchema);
+module.exports = Donations;

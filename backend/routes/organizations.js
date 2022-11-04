@@ -9,13 +9,13 @@ const {
   UpdateOrganization,
   DeleteOrganization,
 } = require("../controllers/organizations.controller");
-const userauth = require("../middlewear/userauth");
+const userauth = require("../middleware/userauth");
 
 OrganizationRouter.post("/addorganization", NewOrganization);
 OrganizationRouter.get("/getorganization", GetOrganization);
 OrganizationRouter.get("/:organizationID", GetOneOrganization);
 OrganizationRouter.put("/update/:organizationID", UpdateOrganization);
 OrganizationRouter.delete("/delete/:organizationID", DeleteOrganization);
-// OrganizationRouter.post("/addmember/:organizationID", AddMember, userauth);
+OrganizationRouter.post("/addmember/:organizationID", userauth, AddMember);
 
 module.exports = OrganizationRouter;

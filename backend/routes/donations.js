@@ -1,19 +1,17 @@
 const express = require("express");
 const DonationRouter = express.Router();
 
-const { 
-    NewDonation ,
-    GetDonations,
-    GetOneDonations,
-    UpdateDonation,
-    DeleteDonation
+const {
+  NewDonation,
+  GetDonations,
+  UpdateDonation,
+  DeleteDonation,
 } = require("../controllers/donation.controller");
+const userauth = require("../middleware/userauth");
 
-DonationRouter.post("/adddonation", NewDonation);
+DonationRouter.post("/adddonation/:organizationID/:eventID", NewDonation);
 DonationRouter.get("/getdonation", GetDonations);
-DonationRouter.get("/getonedonation/:donationID", GetOneDonations);
-DonationRouter.put("/update/:donationID",UpdateDonation);
-DonationRouter.delete("/delete/:donationID",DeleteDonation);
-
+DonationRouter.put("/updatedonation/:donationID", userauth, UpdateDonation);
+DonationRouter.delete("/deletedonation/:donationID", DeleteDonation);
 
 module.exports = DonationRouter;

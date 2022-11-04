@@ -1,6 +1,4 @@
 const User = require("../models/users.models");
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
 
 //user register
 const RegisterUser = async (req, res) => {
@@ -45,66 +43,62 @@ const LoginUser = async (req, res) => {
 };
 
 //user profile
-const GetUserProfile = async (req,res)=>{
+const GetUserProfile = async (req, res) => {
   try {
     console.log(req.User);
     res.status(201);
     res.send({
-      status : "User Details Fetched",
-      User :req.User
+      status: "User Details Fetched",
+      User: req.User,
     });
   } catch (error) {
-    res.status(500)
+    res.status(500);
     res.send({
       status: "Error with User Profile",
-      error : error.message
+      error: error.message,
     });
   }
-}
+};
 
 //user profile update
-const UpdateProfile = async (req,res)=>{
+const UpdateProfile = async (req, res) => {
   try {
-    const {
-      name,
-      phoneNumber     
-    } = req.body
+    const { name, phoneNumber } = req.body;
 
-    const userUpdate = await User.findByIdAndUpdate(req.User._id, 
-      {
-        name:name,
-        phoneNumber:phoneNumber
-      })
-      res.status(200).send({
-        status: "User Profile Updated", 
-        User_s: userUpdate
-      })
+    const userUpdate = await User.findByIdAndUpdate(req.User._id, {
+      name: name,
+      phoneNumber: phoneNumber,
+    });
+    res.status(200).send({
+      status: "User Profile Updated",
+      User_s: userUpdate,
+    });
   } catch (error) {
-      res.status(500).send({error: error.message})
-      console.log(error)
+    res.status(500).send({ error: error.message });
+    console.log(error);
   }
-}
+};
 
 //delete user profile
-const ProfileDelete = async (req,res)=>{
+const ProfileDelete = async (req, res) => {
   try {
-    const deleteProfile = await 
-    User.findByIdAndDelete(req.params.id);
+    const deleteProfile = await User.findByIdAndDelete(req.params.id);
     res.status(200).send({
-       status: "user deleted", 
-       user : deleteProfile
-     });
+      status: "user deleted",
+      user: deleteProfile,
+    });
   } catch (error) {
-    res.status(500).send({ 
-      status: "error with id", 
-      error: error.message });
+    res.status(500).send({
+      status: "error with id",
+      error: error.message,
+    });
   }
-}
+};
 
 module.exports = {
   RegisterUser,
   LoginUser,
   GetUserProfile,
   UpdateProfile,
-  ProfileDelete
+  ProfileDelete,
 };
