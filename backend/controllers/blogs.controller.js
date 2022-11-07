@@ -1,5 +1,6 @@
 const Blogs = require("../models/blogs.models");
 
+//add new blog
 const NewBlog = async (req, res) => {
     let newBlog = new Blogs(req.body);
     newBlog.save((err) => {
@@ -8,12 +9,14 @@ const NewBlog = async (req, res) => {
           error: err,
         });
       }
-      return res.status(200).send({ blog: newBlog }).json({
-        success: "New Blog add successfully!!!",
+      return res.status(200).json({
+        success: "New Blog add Successfully !!",
+        blog :newBlog,
+       });
       });
-    });
   };
   
+  //get all blogs
   const GetBlog = async (req, res) => {
     Blogs.find().exec((err, blogs) => {
       if (err) {
@@ -28,8 +31,9 @@ const NewBlog = async (req, res) => {
     });
   };
 
+  //get one blogs 
   const GetOneBlog = async (req, res) => {
-    let BlogID = req.params.BlogID;
+    let BlogID = req.params.blogID;
     Blogs.findById(BlogID, (err, blog) => {
       if (err) {
         return res.status(400).json({
@@ -42,7 +46,8 @@ const NewBlog = async (req, res) => {
       });
     });
   };
-    
+  
+  //update blog details  
   const UpdateBlog = (req, res) => {
     Blogs.findByIdAndUpdate(
       req.params.blogID,
@@ -62,6 +67,7 @@ const NewBlog = async (req, res) => {
     );
   };
 
+//delete blog 
   const DeleteBlog = (req, res) => {
     Blogs.findByIdAndRemove(req.params.blogID).exec(
       (err, deleteblogs) => {
